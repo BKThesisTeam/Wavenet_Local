@@ -139,7 +139,7 @@ def ToJSON(string):
     result.extend([string[0], string[0], string[0]])
     return result
 
-phonemes, duration = LoadPHN('SA1.PHN')
+phonemes, duration = LoadPHN('SA2.PHN')
 res = ToJSON(phonemes)
 result = OneHotEncoding(res)
 
@@ -171,7 +171,7 @@ for count, elem in enumerate(duration):
     duration_size = math.ceil(0.0625 * length / 5)
     training_upsampled_labels += np.repeat([final[count]], duration_size, axis=0).tolist()
 
-with open('amajor.json', 'w') as outfile:
+with open('amajor-v2.json', 'w') as outfile:
     outfile.write(str(training_upsampled_labels))
 
 # for generating purpose
@@ -182,7 +182,7 @@ for count, elem in enumerate(duration):
 
 # print(len(upsampled_labels))
 
-with open('amajor-gen-1.json', 'w') as outfile:
+with open('amajor-v2-gen-1.json', 'w') as outfile:
     # outfile.write(str(final))
     outfile.write(str(upsampled_labels))
 
