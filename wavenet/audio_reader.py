@@ -62,7 +62,7 @@ def load_generic_audio(directory, sample_rate):
             category_id = int(ids[0][0])
 
         if label_files:
-            with open("./%s.json" % ''.join(filename.split('.')[:-1]), 'r') as f:
+            with open("./%s.json" % ''.join(filename.split('.')[:-1]), 'r', encoding='utf-16') as f:
                 labels = json.loads(f.read())
         else:
             labels = None
